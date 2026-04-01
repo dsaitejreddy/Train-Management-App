@@ -1,4 +1,4 @@
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Main {
@@ -6,30 +6,28 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("=======================================");
-        System.out.println("UC3 - Track Unique Bogie IDs");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies");
         System.out.println("=======================================\n");
 
-        // Create HashSet for unique bogie IDs
-        Set<String> bogies = new HashSet<>();
+        // LinkedHashSet preserves order and ensures uniqueness
+        Set<String> formation = new LinkedHashSet<>();
 
-        // ----- ADD IDs (including duplicates) -----
-        bogies.add("BG101");
-        bogies.add("BG102");
-        bogies.add("BG103");
-        bogies.add("BG104");
+        // ----- ADD bogies -----
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
 
-        // Duplicate entries (will be ignored)
-        bogies.add("BG101");
-        bogies.add("BG102");
+        // Duplicate entry (should be ignored)
+        formation.add("Sleeper");
 
-        // Display bogie IDs
-        System.out.println("Bogie IDs After Insertion:");
-        System.out.println(bogies + "\n");
+        // Display final formation
+        System.out.println("Final Train Formation:");
+        System.out.println(formation + "\n");
 
-        // Note about duplicates
         System.out.println("Note:");
-        System.out.println("Duplicates are automatically ignored by HashSet.\n");
+        System.out.println("LinkedHashSet preserves insertion order and removes duplicates automatically.\n");
 
-        System.out.println("UC3 uniqueness validation completed...");
+        System.out.println("UC5 formation setup completed...");
     }
 }
